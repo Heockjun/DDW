@@ -1,0 +1,5 @@
+# 백엔드에서 무시할 파일/폴더
+node_modules/
+uploads/
+watermarked/
+.env
