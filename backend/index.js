@@ -10,11 +10,15 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(express.json())
 
 // ✅ 2. 라우터 등록
-app.use('/api/auth', require('./routes/auth'))
-app.use('/api/user', require('./routes/user'))
+const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/user')
+const videoRoutes = require('./routes/videos')
+app.use('/api/auth', authRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/videos', videoRoutes)
 app.use('/api', require('./routes/dashboard'))
 app.use('/api/upload', require('./routes/upload'))
-app.use('/api/videos', require('./routes/video'))
+app.use('/api/subscription', require('./routes/subscription'))
 app.use('/watermarked', express.static('watermarked'))
 
 // ✅ 3. 루트 라우트
